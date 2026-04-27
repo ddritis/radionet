@@ -2,7 +2,7 @@
 
 Enterprise segmented network simulation with MikroTik routers, DMZ, internal DNS, eBGP, HTTPS, and Raspberry Pi services.
 
----
+![RADIONET panel](doc/photos/panel_02.jpg)
 
 ## Overview
 
@@ -29,27 +29,51 @@ The project demonstrates:
 
 ### Site 1 — LAN-A / DMZ
 
-- RB951-2n edge router
-- Raspberry Pi 5 MariaDB server
-- Raspberry Pi 4 Apache + PHP web server
-- LAN: 192.168.10.0/24
-- DMZ: 192.168.20.0/24
+* MikroTik RB951-2n edge router
+* Raspberry Pi 5 running MariaDB
+* Raspberry Pi 4 running Apache + PHP + HTTPS
+
+Subnets:
+
+* LAN → `192.168.10.0/24`
+* DMZ → `192.168.20.0/24`
 
 ### Core Network Services
 
-- RB450G core router
-- Internal DNS virtual interface
+- MikroTik RB450G core router
+- Internal DNS virtual IP
 - NAT
 - WAN DHCP client
-- eBGP peering
+- eBGP endpoint
+
+Subnets:
+
+* Site1 transit → `172.16.0.0/30`
+
+---
+
+### Transit Segment
+
+* MikroTik RB750UP transit router
+* eBGP inter-router routing
+
+Subnets:
+
+* core transit → `10.10.10.0/30`
+* site2 transit → `172.26.0.0/30`
+
+---
 
 ### Site 2 — LAN-B
 
-- RB750UP transit router
-- RB2011UAS-2HnD LAN-B router
-- LAN-B wired: 192.168.30.0/24
-- WLAN main: 192.168.40.0/24
-- WLAN guest: 192.168.50.0/24
+* MikroTik RB2011UAS-2HnD
+* wired LAN + WLAN
+
+Subnets:
+
+* LAN-B wired → `192.168.30.0/24`
+* WLAN main → `192.168.40.0/24`
+* WLAN guest → `192.168.50.0/24`
 
 ---
 
@@ -75,11 +99,28 @@ The project demonstrates:
 
 ---
 
+## Hardware gallery
+
+Additional photos available in:
+
+[`doc/photos.md`](doc/photos.md)
+
+---
+
 ## Repository Structure
 
 ```text
-.
+radionet/
+├── configs/
 ├── doc/
+│   ├── photos/
+│   ├── photos.md
 │   └── radionet_topology_v2.svg
 ├── README.md
-└── .gitignore
+```
+
+---
+
+## License
+
+MIT License
