@@ -19,6 +19,14 @@ The project demonstrates:
 
 ---
 
+## Technical Documentation
+
+Detailed network design notes available in:
+
+[`doc/network_design.md`](doc/network_design.md)
+
+---
+
 ## Logical Topology
 
 ![RADIONET Topology](doc/radionet_topology_v2.svg)
@@ -98,12 +106,13 @@ Subnets:
 - HTTPS protected services
 
 ---
+## Documentation
+
+- [Screenshots gallery](doc/screenshots/screenshots.md)
 
 ## Hardware gallery
 
-Additional photos available in:
-
-[`doc/photos.md`](doc/photos.md)
+- [Photos](doc/photos.md)
 
 ---
 
