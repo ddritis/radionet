@@ -1,0 +1,69 @@
+<mxfile host="Electron" agent="GPT-5.4 Thinking">
+  <diagram id="RADIONET-01" name="RADIONET">
+    <mxGraphModel dx="2293" dy="1169" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="siteA" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#767676;fontStyle=1;" value="Site A - LAN / DMZ Segment" vertex="1">
+          <mxGeometry height="470" width="430" x="40" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="core" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="Core Network Services" vertex="1">
+          <mxGeometry height="350" width="280" x="540" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="siteB" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#7C3AC1;fontStyle=1;" value="&lt;div style=&quot;line-height: 130%;&quot;&gt;Site B - Transit and LAN-B&lt;/div&gt;" vertex="1">
+          <mxGeometry height="500" width="420" x="970" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="rb951" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="RB951-2n&#xa;LAN / DMZ Router&#xa;LAN: 192.168.10.0/24&#xa;DMZ: 192.168.20.0/24&#xa;Uplink: 172.16.0.1/30&#xa;Role: Edge router" vertex="1">
+          <mxGeometry height="130" width="190" x="160" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="pi5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6e6e6;strokeColor=#767676;" value="Raspberry Pi 5&#xa;MariaDB Server&#xa;LAN side" vertex="1">
+          <mxGeometry height="80" width="145" x="70" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="pi4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Raspberry Pi 4&#xa;Apache + PHP&#xa;DMZ: 192.168.20.4&#xa;HTTPS with internal CA" vertex="1">
+          <mxGeometry height="90" width="160" x="280" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="lanLabel" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="LAN&#xa;192.168.10.0/24" vertex="1">
+          <mxGeometry height="40" width="120" x="70" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="dmzLabel" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="DMZ&#xa;192.168.20.0/24" vertex="1">
+          <mxGeometry height="40" width="120" x="320" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="rb450" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="RB450G&#xa;Core Router&#xa;AS64512&#xa;172.16.0.2/30&#xa;10.10.10.1/30&#xa;Role: Core + DNS + NAT" vertex="1">
+          <mxGeometry height="130" width="200" x="580" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="dns" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;" value="Internal DNS&#xa;Virtual IP: 192.168.99.1/24&#xa;FQDN example:&#xa;www.radionet.lab" vertex="1">
+          <mxGeometry height="90" width="180" x="590" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="rb750" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="RB750UP&#xa;Transit Router&#xa;AS64513&#xa;10.10.10.2/30&#xa;172.26.0.1/30&#xa;Role: Inter-AS transit" vertex="1">
+          <mxGeometry height="130" width="190" x="1030" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="rb2011" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="RB2011UAS-2HnD&#xa;LAN-B Router&#xa;172.26.0.2/30&#xa;LAN-B: 192.168.30.0/24&#xa;Role: Remote branch / second LAN" vertex="1">
+          <mxGeometry height="120" width="210" x="1090" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="lanbLabel" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="LAN-B&#xa;192.168.30.0/24" vertex="1">
+          <mxGeometry height="40" width="200" x="1015" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="pi5" style="endArrow=none;html=1;strokeWidth=2;" target="rb951" value="LAN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="pi4" style="endArrow=none;html=1;strokeWidth=2;" target="rb951" value="DMZ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="rb951" style="endArrow=classic;html=1;strokeWidth=2;" target="rb450" value="172.16.0.0/30&#xa;RB951: 172.16.0.1&#xa;RB450G: 172.16.0.2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="rb450" style="endArrow=none;dashed=1;html=1;strokeWidth=2;" target="dns" value="DNS VIP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="rb450" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#7C3AC1;" target="rb750" value="10.10.10.0/30&#xa;RB450G: 10.10.10.1&#xa;RB750UP: 10.10.10.2&#xa;eBGP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="rb750" style="endArrow=classic;html=1;strokeWidth=2;" target="rb2011" value="172.26.0.0/30&#xa;RB750UP: 172.26.0.1&#xa;RB2011: 172.26.0.2">
+          <mxGeometry relative="1" x="0.1193" y="-65" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
