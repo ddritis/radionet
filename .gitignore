@@ -1,0 +1,29 @@
+
+---
+
+# .gitignore
+
+Per il tuo caso conviene minimalista:
+
+```gitignore
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# LibreOffice temp files
+~$*
+
+# Backup files
+*.bak
+*.tmp
+
+# Draw.io autosave
+*.drawio.bkp
+
+# Python cache (if future scripts added)
+__pycache__/
+*.pyc
