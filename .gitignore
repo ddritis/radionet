@@ -27,3 +27,4 @@ Thumbs.db
 # Python cache (if future scripts added)
 __pycache__/
 *.pyc
+/backups
