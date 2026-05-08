@@ -21,9 +21,23 @@ The project demonstrates:
 
 ## Technical Documentation
 
+### Network design
+
 Detailed network design notes available in:
 
 [`doc/network_design.md`](doc/network_design.md)
+
+### Product Datasheets
+
+Hardware datasheets and product specifications:
+
+[`doc/datasheets.md`](doc/datasheet.md)
+
+### Product Images
+
+Hardware photos and product reference images:
+
+[`doc/product_images.md`](doc/product_images.md)
 
 ---
 
